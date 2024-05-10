@@ -1,0 +1,81 @@
+@import "./1.scss";
+
+.display_none {
+    display: none;
+}
+.input_layout {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.input_conteiner {
+    background: #7373731a;
+    max-width: 270px;
+    width: 100%;
+    border: 1px solid #6c757d;
+    border-radius: 10px;
+    min-height: 48px;
+    padding: 3px 10px;
+}
+
+.text-input-label {
+    color:#6c757d;
+    font-size: 12px;
+}
+
+.input_style_1 {
+    background: #73737300;
+    outline: 0px;
+    border-radius: 5px;
+    border: 0px;
+    max-width: 65%;
+    padding-left: 5px;
+}
+
+.input_style_2 {
+    background: #73737300;
+    outline: 0px;
+    border-radius: 5px;
+    border: 0px;
+    max-width: 65%;
+}
+
+.input_style:focus{
+    outline: 0px
+}
+
+.input_img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.select-conteiner {
+    display: flex;
+}
+
+.btn_color {
+    background:#e83e8c;
+    color: #1a192e;
+}
+
+.menu_select{
+    position: absolute;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+
+.menu_select_content{
+    color: white;
+    background-color: #212529;
+    padding: 5px 10px;
+    cursor: pointer;
+    right: 0;
+}
+.exit {
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+<div class="display_none" id="user_data">
+    <div class="text-white border-2 border-main py-0 px-3 rounded-lg flex items-center">
+        <div class="mr-3 text-sm font-medium flex flex-col pt-1 leading-tight">
+            <span id="coin_1">O ETH</span> <!-- баланс -->
+            <span>
+                <span class="text-pink" id="coin_2">0 TPAD</span> <!-- баланс -->
+            </span>
+        </div>
+        <button id="button_copy"  type="button" class="p-0 m-0 mr-3 flex items-center outline-none btn btn-dark-outline btn_copy">
+            <span class="UserWallet_addressPill__FOL8j badge badge-pill badge-secondary">
+                <span id="acc_wallet" >0x60Ed...09fE</span>
+                <span class="hidden">Copied</span>
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="inline align-bottom text-sm ml-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H10c-1.103 0-2 .897-2 2v4H4c-1.103 0-2 .897-2 2v10c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2v-4h4c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zM4 20V10h10l.002 10H4zm16-6h-4v-4c0-1.103-.897-2-2-2h-4V4h10v10z"></path>
+                </svg>
+            </span>
+        </button>
+        <div class="dropdown">
+            <p>
+                <div class="exit" style="height: 24px; width: 24px; border-radius: 12px;">
+                    <div style="border-radius: 50px; overflow: hidden; padding: 0px; margin: 0px; width: 24px; height: 24px; display: inline-block; background: rgb(242, 170, 2);">
+                        <svg   id="exit"  x="0" y="0" width="24" height="24">
+                            <rect x="0" y="0" width="24" height="24" transform="translate(3.025784649346101 -0.3083173641362167) rotate(468.5 12 12)" fill="#FB1855"></rect>
+                            <rect x="0" y="0" width="24" height="24" transform="translate(-13.955017753477472 -6.365495728477468) rotate(344.9 12 12)" fill="#F94B01"></rect>
+                            <rect x="0" y="0" width="24" height="24" transform="translate(10.806589555601679 17.093520224341614) rotate(77.2 12 12)" fill="#C81444"></rect>
+                        </svg>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+    <div class="absolute right-0">
+        <div id="timenow" class="opacity-70 text-gray-300 tracking-wide" style="font-size:0.75rem"></div>
+    </div>
+
+    <script type="text/javascript">
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];  
+    let d = new Date(); // for now
+
+    let mn = monthNames[d.getMonth()]
+    let dd = ((d.getUTCDate()<10?'0':'') + d.getUTCDate())
+    let hh = ((d.getUTCHours()<10?'0':'') + d.getUTCHours())
+    let mm = ((d.getUTCMinutes()<10?'0':'') + d.getUTCMinutes())
+
+    let datetext = mn + " " + dd + ", " + hh + ":"+ mm + " UTC";
+
+    document.getElementById('timenow').innerText = datetext;
+      </script>
+</div>
